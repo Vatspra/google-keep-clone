@@ -1,0 +1,16 @@
+.card-container {
+    .mat-card {
+        margin-top: 64px;
+        width: 384px;
+        .auth-main {
+            width: 100%;
+            .auth-container {
+                .logo-image {
+                    img {
+                        width: 96px;
+                    }
+                }
+            }
+        }
+    }
+}
