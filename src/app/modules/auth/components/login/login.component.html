@@ -2,7 +2,7 @@
     <!-- <div class="flex-row-centered pad-8">
         Login
     </div> -->
-    <form [formGroup]="loginForm" >
+    <form [formGroup]="loginForm">
         <div class="pad-8">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
@@ -22,5 +22,8 @@
             </button>
         </div>
     </form>
-
+    <div class="ext-link margin-top-bottom-16">
+        New user ? <a [routerLink]="'/auth/register'">Register</a>
+    </div>
 </div>
+
