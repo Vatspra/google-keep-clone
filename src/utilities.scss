@@ -11,6 +11,7 @@
 
 .flex-column-centered {
     @extend .flex;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -34,4 +35,26 @@
 
 .spacer {
     flex-grow: 1;
+}
+
+.mat-form-field-underline{
+    display: none !important;
+}
+
+.margin-16{
+    margin: 16px
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    height: 40px !important;
+}
+.mat-toolbar {
+    background: unset !important;
+}
+.mat-expansion-panel-body {
+    padding: 0px !important;
+}
+
+.custom-list-item {
+    border-top: 1px solid lightgray;
 }

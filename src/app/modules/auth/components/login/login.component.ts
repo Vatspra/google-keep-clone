@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit {
       const userInfo = this.authService.signIn(email, password);
       if (userInfo) {
         this.router.navigate(['/dashboard']);
+        this.authService.openSnackbar('Logged in!');
+      } else {
+        this.authService.openSnackbar('Username or password is invalid');
       }
     }
     //

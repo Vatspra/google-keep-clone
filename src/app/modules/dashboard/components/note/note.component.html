@@ -1,0 +1,23 @@
+<div class="note-container" *ngIf="noteItem">
+    <mat-card>
+        <img mat-card-image [src]="noteItem.img" *ngIf="noteItem.img">
+        <div class="title pad-16">
+            {{noteItem.title}}
+        </div>
+
+        <div class="lists">
+            <mat-list>
+                <mat-list-item *ngFor="let list of noteItem.list">
+                    <div class="flex">
+                        <mat-checkbox [checked]="list.completed" (change)="matCheckBoxChange($event, list)"></mat-checkbox>
+                        <div class="text">{{list.item}}</div>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+        <div class="note pad-16">
+            {{noteItem.note}}
+        </div>
+    </mat-card>
+</div>

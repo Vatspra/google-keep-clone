@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <app-header (searchEvent)="search($event)"></app-header>
+    <app-add-note (newItemEvent)="addNewItem($event)"></app-add-note>
+    <div class="notes-container margin-16">
+        <div class="note pad-8" *ngFor="let note of notes">
+            <app-note [noteItem]="note"></app-note>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <router-outlet></router-outlet> -->

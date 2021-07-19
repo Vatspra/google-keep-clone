@@ -23,10 +23,10 @@ class StorageHelperClass {
         localStorage.setItem(key, JSON.stringify(value));
     }
 
-    get userInfo(): UserInfo {
+    get userInfo(): UserInfo| null {
         return this.get(LOCAL_STORAGE_KEYS.UserInfo);
     }
-    set userInfo(userInfo: UserInfo) {
+    set userInfo(userInfo: UserInfo| null) {
         this.set(LOCAL_STORAGE_KEYS.UserInfo, userInfo);
     }
 
@@ -35,7 +35,7 @@ class StorageHelperClass {
     }
 
     set users(users: UserInfo[]) {
-        this.set(LOCAL_STORAGE_KEYS.UserInfo, users);
+        this.set(LOCAL_STORAGE_KEYS.Users, users);
     }
 
 

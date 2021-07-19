@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 // import { userInfo } from 'os';
 import { UserInfo } from 'src/app/helpers/interfaces';
 import { StorageHelper } from 'src/app/helpers/storage';
@@ -8,24 +9,29 @@ import { StorageHelper } from 'src/app/helpers/storage';
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    private snackBar: MatSnackBar
+  ) { }
 
 
   signIn(email: string, password: string): UserInfo | null {
-    const userInfo = StorageHelper.userInfo || {};
-    if (userInfo.email === email && userInfo.password === password) {
-      StorageHelper.userInfo = userInfo;
-      return userInfo;
-    } else {
-      return null;
+    const users = StorageHelper.users || [];
+    if (users && users.length) {
+      for (const user of users) {
+        if (user.email === email && user.password === password) {
+          StorageHelper.userInfo = user;
+          return user;
+        }
+      }
     }
+    return null;
   }
 
 
   register(user: UserInfo): UserInfo | null {
     const users = StorageHelper.users || [];
     const isUserExists = this.isUserExists(user.email);
-    if(isUserExists) {
+    if (isUserExists) {
       return null;
     } else {
       // update register users
@@ -41,12 +47,18 @@ export class AuthService {
 
   isUserExists(email: string): boolean {
     const users = StorageHelper.users || [];
-    for(const user of users) {
-      if(user.email == email) {
+    for (const user of users) {
+      if (user.email == email) {
         return true;
       }
     }
 
     return false;
+  }
+
+  openSnackbar(text: string) {
+    this.snackBar.open(text, '', {
+      duration: 5 * 1000
+    });
   }
 }

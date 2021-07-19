@@ -38,6 +38,9 @@ export class RegisterComponent implements OnInit {
       const user = this.authService.register(obj);
       if(user) {
         this.router.navigate(['/dashboard']);
+        this.authService.openSnackbar('User created');
+      } else {
+        this.authService.openSnackbar('User already exists');
       }
     }
     //

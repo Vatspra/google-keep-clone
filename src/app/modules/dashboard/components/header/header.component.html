@@ -1,0 +1,46 @@
+<mat-toolbar>
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button> -->
+    <div class="flex-row-centered">
+        <img src="../../../../../assets/images/gkeep-logo.png">
+        <span class="logo-text">Keep</span>
+    </div>
+
+    <div class="searchbar spacer">
+        <div class="search-container flex">
+            <!-- <mat-label>Clearable input</mat-label> -->
+            <button mat-icon-button matPrefix>
+                <mat-icon>search</mat-icon>
+            </button>
+            <input matInput type="text" [(ngModel)]="value" placeholder="search" (ngModelChange)="search($event)">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (clear)="clear()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <!-- <span class="spacer"></span> -->
+    <button mat-icon-button class="profile" [matMenuTriggerFor]="menu">
+        <mat-icon> account_circle</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>logout</span>
+        </button>
+    </mat-menu>
+
+    <!-- <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu> -->
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button> -->
+</mat-toolbar>

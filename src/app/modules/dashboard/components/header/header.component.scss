@@ -1,0 +1,44 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  img {
+      width: 48px;
+      height: 48px;
+  }
+  .logo-text {
+      margin-left: 8px;
+      font-weight: normal;
+  }
+
+  .profile {
+    .mat-icon {
+        font-size: 40px;
+    }
+  }
+ 
+
+  .searchbar {
+    // background: lightgrey;
+    padding: 8px;
+    border-radius: 4px;
+    // width: 70%;
+    margin-left: 32px;
+    margin-right: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .mat-form-field{
+        width: 50%;
+    }
+
+    .search-container {
+        background: lightgray;
+        width: 80%;
+        border-radius: 4px;
+        input {
+            padding: 8px;
+        }
+    }
+    // max-width: 400px;
+  }
