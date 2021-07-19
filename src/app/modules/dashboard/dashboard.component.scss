@@ -1,0 +1,11 @@
+.note {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 32px;
+}

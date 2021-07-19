@@ -1,0 +1,60 @@
+.flex {
+    display: flex;
+}
+
+.flex-row-centered {
+    @extend .flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-centered {
+    @extend .flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pad-8 {
+    padding: 8px;
+}
+.pad-16 {
+    padding: 16px;
+}
+.margin-top-bottom-8 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.margin-top-bottom-16 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.mat-form-field-underline{
+    display: none !important;
+}
+
+.margin-16{
+    margin: 16px
+}
+
+.mat-expansion-panel-header.mat-expanded {
+    height: 40px !important;
+}
+.mat-toolbar {
+    background: unset !important;
+}
+.mat-expansion-panel-body {
+    padding: 0px !important;
+}
+
+.custom-list-item {
+    border-top: 1px solid lightgray;
+}

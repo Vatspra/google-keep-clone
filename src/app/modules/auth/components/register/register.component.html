@@ -1,0 +1,35 @@
+<div class="login-form pad-16 flex-column-centered">
+    <!-- <div class="flex-row-centered pad-8">
+        Register
+    </div> -->
+    <form [formGroup]="registerForm" >
+        <div class="pad-8">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput color="primary" [formControl]="controls.email">
+                <mat-error *ngIf="controls.email.hasError('required')">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="pad-8">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [formControl]="controls.password" type="password">
+                <mat-error *ngIf="controls.password.hasError('required')">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="btn flex-row-centered pad-8">
+            <button mat-raised-button color="primary" (click)="register()" [disabled]="registerForm.invalid">
+                Register
+            </button>
+        </div>
+    </form>
+
+    <div class="ext-link margin-top-bottom-16">
+        Existing user ? <a [routerLink]="'/auth/login'">Login</a>
+    </div>
+</div>

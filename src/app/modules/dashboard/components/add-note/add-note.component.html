@@ -1,0 +1,87 @@
+<div class="expansion-container">
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel (opened)="expansionPanelOpend($event)" (closed)="expansionPanelClosed($event)" [expanded]="expanded">
+            <mat-expansion-panel-header>
+                <mat-panel-title *ngIf="showHeader">
+                    <div class="flex">
+                        <mat-label >Take a note ...</mat-label>
+                        <div class="spacer"></div>
+                        <button mat-icon-button (click)="displayListView()">
+                            <mat-icon>check_box</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="stopPropagtion($event);file.click()" >
+                            <mat-icon>image</mat-icon>
+                        </button>
+
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <input #file type='file' class="hide" (change)='uploadFile($event)'>
+
+            <mat-form-field class="margin-8">
+                <mat-label class="pad-8">Title</mat-label>
+                <input matInput [(ngModel)]="title" class="title">
+            </mat-form-field>
+
+            <div class="image-container pad-8" *ngIf="imgSrc">
+                <img [src]="imgSrc">
+            </div>
+
+            <div class="list-item" *ngIf="!showNoteView">
+                <mat-list role="list">
+                    <mat-list-item role="listitem" >
+                        <div class="flex">
+                            <button mat-button (click)="addNotes()">
+                                <mat-icon>add</mat-icon>
+                                Add List Item
+                            </button>
+                           
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item *ngFor="let list of lists" class="custom-list-item">
+                        <div class="flex">
+                            <mat-checkbox [(ngModel)]="list.completed"></mat-checkbox>
+                            <mat-form-field class="margin-8">
+                                <!-- <mat-label>Title</mat-label> -->
+                                <input matInput [value]="list.item" [(ngModel)]="list.item">
+                            </mat-form-field>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+
+            <mat-form-field *ngIf="showNoteView" class="pad-8">
+                <mat-label>Take a note...</mat-label>
+                <input matInput [(ngModel)]="note">
+            </mat-form-field>
+
+            <mat-action-row>
+                <button mat-icon-button>
+                    <mat-icon>notification</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>person_add</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>palette</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>archive</mat-icon>
+                </button>
+                <button mat-icon-button (click)="file.click()">
+                    <mat-icon>image</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <!-- <button mat-button color="primary">Next</button> -->
+            </mat-action-row>
+            <mat-action-row class="close">
+                <button mat-button (click)="saveItem()">Close
+                    <!-- <mat-icon>close</mat-icon> -->
+                </button>
+            </mat-action-row>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
